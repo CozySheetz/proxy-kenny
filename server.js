@@ -18,5 +18,3 @@ proxy.use(express.static(path.join(__dirname, 'public')));
 proxy.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
 });
-
-// chnage!
