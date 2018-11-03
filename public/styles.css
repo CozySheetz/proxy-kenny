@@ -1,13 +1,28 @@
-#Info {
+#nav-app {
   display: block;
 }
 
-#CountDown {
-  margin-left: 5px;
-  display: inline-block;
+#description-app {
+  display: block;
 }
 
-#Related {
+#booker-app {
+  display: block;
+}
+
+#reviews-app {
+  display: block;
+}
+
+#gallery-app {
+  display: block;
+}
+
+#related-listings-app {
+  display: block;
+}
+
+/* #Related {
   margin: 10%;
   display: block;
-}
+} */
