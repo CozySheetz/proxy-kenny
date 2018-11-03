@@ -1,4 +1,3 @@
-import bodyParser from 'body-parser';
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
