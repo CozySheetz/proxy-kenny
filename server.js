@@ -35,6 +35,15 @@ app.get('/unavailabilities/:id', function(req, res) {
     .catch(e => console.log('there is an error!', e));
 });
 
+app.post('/bookings/', function(req, res) {
+  axios
+    .get(`http://18.219.227.74/bookings/`)
+    .then((response) => {
+      res.send(response.data)
+    })
+    .catch(e => console.log('there is an error!', e));
+});
+
 app.get('/*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html'))
 })
