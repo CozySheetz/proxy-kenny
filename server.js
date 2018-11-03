@@ -2,8 +2,10 @@ const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
 const app = express();
-const port = process.env.PORT || 4000;
 const axios = require('axios')
+const bodyParser = require('body-parser');
+
+const port = process.env.PORT || 4000;
 
 const proxy = express();
 proxy.use(morgan('dev'));
