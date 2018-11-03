@@ -13,7 +13,7 @@ proxy.use(bodyParser());
 proxy.use(express.static(path.join(__dirname, 'public')));
 
 proxy.get('/rooms/:id', function(req, res) {
-  const id = req.params.id;``
+  const id = req.params.id;
   axios
     .get(`http://18.219.227.74/listings/${id}`)
     .then((response) => {
