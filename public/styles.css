@@ -3,7 +3,7 @@
 }
 
 #description-app {
-  display: block;
+  float: left;
 }
 
 #booker-app {
