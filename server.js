@@ -11,10 +11,6 @@ const proxy = express();
 proxy.use(morgan('dev'));
 proxy.use(bodyParser());
 
-proxy.listen(port, function() {
-  console.log(`port is up on ${port}`);
-});
-
 proxy.use(express.static(path.join(__dirname, 'public')));
 
 proxy.get('/rooms/:id', function(req, res) {
