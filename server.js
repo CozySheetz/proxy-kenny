@@ -3,29 +3,39 @@ const morgan = require('morgan');
 const path = require('path');
 const axios = require('axios')
 const bodyParser = require('body-parser');
+const cors = require('cors')
 
 const port = process.env.PORT || 4000;
 
-const proxy = express();
-proxy.use(morgan('dev'));
-proxy.use(bodyParser());
+const app = express();
+app.use(morgan('dev'));
+app.use(bodyParser());
+app.use(cors())
 
-proxy.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
-proxy.get('/rooms/:id', function(req, res) {
-  const id = req.params.id;
-  axios
-    .get(`http://18.219.227.74/listings/${id}`)
-    .then((response) => {
-      res.send(response.data)
-    })
-    .catch(e => console.log('there is an error!', e));
-});
+// app.get("/rooms/:id", (req, res) => {
+//   res.sendFile(path.join(__dirname, "./public/index.html"));
+// });
 
-proxy.get('/test', (req, res) => {
-  res.send('TEST')
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'))
 })
 
-proxy.listen(port, () => {
+// app.get('/rooms/:id', function(req, res) {
+//   const id = req.params.id;
+//   axios
+//     .get(`http://18.219.227.74/listings/${id}`)
+//     .then((response) => {
+//       res.send(response.data)
+//     })
+//     .catch(e => console.log('there is an error!', e));
+// });
+
+// app.get('/test', (req, res) => {
+//   res.send('TEST')
+// })
+
+app.listen(port, () => {
   console.log(`server running at: http://localhost:${port}`);
 });
