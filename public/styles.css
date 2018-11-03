@@ -7,7 +7,7 @@
 }
 
 #booker-app {
-  display: block;
+  float: right;
 }
 
 #reviews-app {
